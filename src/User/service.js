@@ -85,7 +85,7 @@ class UserServices {
         }
     }
 
-    static forgotPassword(req,res) {
+    static async forgotPassword(req,res) {
         const {email} = req.body;
         try{
             let user = await Users.findOne({ email});
@@ -111,7 +111,7 @@ class UserServices {
               // front end URL
 
               const resetURL = `${req.protocol}://${req.get(
-                "host"
+                "host"  //the host is the domain name
             )}/verifyResetToken?token=${token}&userId=${user._id}`;
 
 
