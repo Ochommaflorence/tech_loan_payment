@@ -11,7 +11,7 @@ export const handleResponse = (res, statusCode, message, data, token ) => {
 };
 
 export const generateToken = (payload) => {
-    jwt.sign(payload, process.env.TOKEN_PASSWORD);
+  return  jwt.sign(payload, process.env.TOKEN_PASSWORD);
 }
 export const decodeToken = (token) => {
     jwt.decode(token, process.env.TOKEN_PASSWORD);

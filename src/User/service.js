@@ -14,7 +14,7 @@ class UserServices {
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
-            if(isMatch) {
+            if(!isMatch) {
                 return handleResponse(res, 401, "Invalid Credentials")
             };
 
@@ -176,7 +176,7 @@ class UserServices {
 
             });
 
-            return handleResponse(res,200, "PAssword reset successful", {
+            return handleResponse(res,200, "Password reset successful", {
                 user:{
                     ...user._doc,
                     passwordResetExpires:false,
